@@ -6,27 +6,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity
+@Getter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Getter
-public class Article {
+@Entity
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String title;
+    @ManyToOne
+    @JoinColumn(name="article_id")
+    private Article article;
 
     @Column
-    private String content;
+    private String nickname;
 
-    public void patch(Article article) {
-        if(article.title != null)
-            this.title=article.title;
-        if(article.content != null)
-            this.content = article.content;
-    }
+    @Column
+    private String body;
+
 }
