@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm
+                 https://jakarta.ee/xml/ns/persistence/orm/orm_3_0.xsd"
+                 version="3.0">
+<!--    -->
+<!--    <named-native-quary name="쿼리_수행_대상_엔티티.메서드_이름" result-class="쿼리_수행_결과_반환하는_타입의_천체_패키지_경로">-->
+<!--        <quary>-->
+<!--            <![CDATA[-->
+<!--                &lt;!&ndash; 쿼리 &ndash;&gt;-->
+<!--            ]]>-->
+<!--        </quary>-->
+<!--    </named-native-quary>-->
+<!--    -->
+    <named-native-query name="Comment.findByNickname" result-class="com.example.firstproject.entity.Comment">
+        <query>
+            <![CDATA[
+                SELECT * FROM comment WHERE nickname = :nickname
+            ]]>
+        </query>
+
+    </named-native-query>
+
+</entity-mappings>
